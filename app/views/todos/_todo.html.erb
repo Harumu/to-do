@@ -32,8 +32,11 @@
     </div>
     <div class="card-text">
       <small class="text-muted">
-        <%= todo.created_at.strftime('%Y/%m/%d') %>
+        <%= l(todo.created_at, format: :short) if todo.created_at.present? %>
       </small>
+     <div>
+       <%= render partial: "todos/tag", collection: todo.tags, as: :tag %>
+     </div>
     </div>
   </div>
 </div>

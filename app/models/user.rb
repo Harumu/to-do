@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  def available_tags
+  self.tags.select(&:persisted?)
+end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
